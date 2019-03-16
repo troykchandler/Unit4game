@@ -3,21 +3,153 @@
 
 <Head>
     <meta charset="utf-8">
+    <Title> Crystal Game!</Title>
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
 </Head>
 
 <Body>
-    <div class="crystal">
+    <div id="intro" class="view light">
+        <div class="full-bg-img">
+        </div>
     </div>
-    
-    <h1> Hello World!! </h1>
-    <script type="text/javascript"> src = "assets/javascript/game.js"
-    </script>
+    <div class="container">
+        <div class="Jumbotron">
+            <div class="container">
+                <h1 class="text-center" style="color:white;">
+                    Random Crystal Guessing Game!!
+                </h1>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card md-4">
+                    <div class="card-header">
+                        Instructions
+                    </div>
+                    <div class="card-body">
+                        <p style="text-shadow: rgb(44, 20, 129)"> This is a guessing game using numbers where the player
+                            will guess with numbers.
+                            There will be four crystals displayed as buttons on the page that will each represent a
+                            random
+                            number.
+                            The player will have a Random number at the start of the game that they will attempt to
+                            guess.
+                            The player clicks on a crystal and it will add a specific amount of points to the player's
+                            total
+                            score which starts at zero.
+                            To win the game the player must match their total score with the random number that is given
+                            at
+                            the beginning of the game.
+                            If the player goes over the random number, then the player loses the game.
+                            The amount of points each crystal is worth is not shown to the player,
+                            but their total score is displayed and updated after each crystal is clicked.
+                            The number of games won and lost will be displayed as the player continues to play the game.
+                            The game restarts when the player matches the
+                            random number and wins the game or loses the game by going over the score.
+                            When the game is restarted, the player will be shown a new random number and all the
+                            crystals
+                            will now have different values.
+                            Good Luck!!
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-2">
+                <div class="card md-4">
+                    <div class="card-header">
+                        Objective Score
+                    </div>
+                    <div class="card-body">
+                        <h2 class="text-center" id="ObjectiveScore"></h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="card md-4">
+                    <div class="card-header">
+                        Your Score
+                    </div>
+                    <div class="card-body">
+                        <h2 class="text-center" id="your-score"></h2>
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Crystals
+                    </Div>
+                    <div class="card-body text-center">
+                        <img src="C:\Users\troyk\Desktop\Unit4game\assets\images\GreenandPurp.jpg" alt="Green Diamond"
+                            id="Teal" style="height:150px; width:150px">
+                        <img src="C:\Users\troyk\Desktop\Unit4game\assets\images\Orange.jpg" alt="Orange diamond"
+                            id="Orange" style="height:150px; width:150px">
+                        <img src="C:\Users\troyk\Desktop\Unit4game\assets\images\Purple.jpg" alt="Purple diamond"
+                            id="Purple" style="height:150px; width:150px">
+                        <img src="C:\Users\troyk\Desktop\Unit4game\assets\images\yellowdiamond.jpg" alt="yellow diamond"
+                            id="Yellow" style="height:150px; width:150px">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        Games won
+                    </div>
+                    <div class="card-body">
+                        <h2 class="text-center" id="games-Won"> 0 </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <i class="fas fa-skull-crossbones">
+                        <i class="fas fa-skull-crossbones">
+                            <i class="fas fa-skull-crossbones">
+                                <i class="fas fa-skull-crossbones">
+                                    <i class="fas fa-skull-crossbones">
+                                        <i class="fas fa-skull-crossbones">
+                                            <i class="fas fa-skull-crossbones">
+                                                <i class="fas fa-skull-crossbones">
+                                                    <i class="fas fa-skull-crossbones">
+                                                        <i class="fas fa-skull-crossbones">
+                                                        </i>
+                                                    </i>
+                                                </i>
+                                            </i>
+                                        </i>
+                                    </i>
+                                </i>
+                            </i>
+                        </i>
+                    </i>
+                    </i>
+                    <div class="card-header">
+                        Games Lost
+                    </div>
+                    <div class="card-body">
+                        <h2 class="text-center" id="games-Lost"> 0 </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </Div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src ="C:\Users\troyk\Desktop\Unit4game\assets\javascriptgame.js"></script>
 
 </Body>
-
-
-
 
 </HTML>

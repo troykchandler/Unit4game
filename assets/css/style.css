@@ -1,12 +1,13 @@
-.crystals{
-   display: flex;
-   justify-content: space-between;
-   border: 1px solid red;
-   align-items: center;
-}
+body, html 
+  #intro {
+    /* The image used */
+    background-image: url("https://fossbytes.com/wp-content/uploads/2017/04/time-crystals-.jpg");
 
-
-.crystal{
-    border:1px solid green;
-    height:200px;
-}
+    /* Full height */
+    height: 100%;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
