@@ -7,109 +7,101 @@
 // If it is greater than the Random Result then we need to decrement the lost counter.
 // If it is not equal then we increment a win counter.
 
+// So, the first step is to list out all of the variables that I am going to need in order for it to work.
+//I am going to need a score that the player is trying to obtain, a current score, games won, games lost, and the crystal colors.
+var objectiveScore = 0;
+var yourscore = 0;
+var games_won = 0;
+var games_lost= 0;
+var Teal = 0;
+var Yellow = 0;
+var Orange = 0;
+var Purple = 0;
 
-var crystal = {
+// I am also going to need an Array Var.
+var arr = [];
+// I need to make sure to associate Vars with the ID's I have setup.
+function start(){
+    $("#games-Won").html(games_won);
+    $("#games-lost").html(games_lost);
+    yourscore = getRandom();
+    $("#objectiveScore").html(yourscore);
+    $("#your-score").html(objectiveScore);
+    crystalRandom();
 
-      Teal: {
-            name: "Teal",
-            value: 0
-      },
-      Yellow: {
-            name: "Yellow",
-            Value: 0
-      },
-      Orange: {
-            name: "Orange",
-            value: 0
-      },
-      Purple: {
-            name: "Purple",
-            value: 0
-      },
+}
 
-};
+// I need a random number generator using Math.floor(Math.random())
 
-var score = 0;
-var obejectiveScore = 0;
-var gamesWon = 0;
-var gamesLost = 0;
+function getRandom() {
+    return Math.floor(Math.random()*100);
+}
 
 
-var randomNumber = function (min, max) {
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+function crystalRandom(){
+    for (i = 0; i< 4; i++){
+        arr.push(getRandom() + 1);
+    }
+    Teal = arr[0]% 7;
+    Yellow = arr[1]% 20;
+    Orange = arr[2]% 5;
+    Purple = arr[3]% 13;
+}
 
-var startgame = function () {
+function gameStatus() {
+    if(yourscore === objectiveScore){
+        $("#games-Won").html(++games_won);
+        reset();
+       
+    }
+    else if(yourscore < objectiveScore){
+        $("#games-lost").html(++games_lost);
+        reset();
+    }
 
-      score = 0;
-      objectiveScore = randomNumber(25, 250);
+}
 
-      crystal.Orange.value = randomNumber(1, 25);
-      crystal.Purple.value = randomNumber(1, 15);
-      crystal.Teal.value = randomNumber(1, 10);
-      crystal.Yellow.value = randomNumber(1, 25);
+function reset() {
+    objectiveScore = 0;
+    $("#your-score").html(objectiveScore);
+    yourscore = getRandom();
+    $("#objectiveScore").html(yourscore);
+    crystalRandom();
+}
 
-      $("#your-score").text(score);
-      $("#objective-Score").text(objectiveScore);
-      
-};
-var checkWin = function () {
-      if (score > objectiveScore) {
-            alert("You Lose!");
 
-            gamesLost++;
-            $("#loss-count").text(gamesLost);
-            startgame();
-      }
-      else if (score === objectiveScore) {
-            alert("You Win!!");
-            gamesWon++;
-            $("#win-count").text(gamesWon);
-            startgame();
-      }
-};
 
-var addValues = function (clickedCrystal) {
-      score += clickedCrystal.value;
+$(document).ready(function() {
+    start();
 
-      $("your-score").text(score);
+    $("#Teal").on("click", function () {
 
-      checkWin();
-};
+        objectiveScore += Teal;
+        $("#your-score").html(objectiveScore);
+        gameStatus();
+    });
 
-startgame();
+    $("#Yellow").on("click", function () {
 
-$("#Yellow").click(function () {
-      addValues(crystal.Yellow);
+        objectiveScore += Yellow;
+        $("#your-score").html(objectiveScore);
+        gameStatus();
+    });
+    $("#Orange").on("click", function () {
+
+        objectiveScore += Orange;
+        $("#your-score").html(objectiveScore);
+        gameStatus();
+
+    });
+    $("#Purple").on("click", function () {
+
+        objectiveScore += Purple;
+        $("#your-score").html(objectiveScore);
+        gameStatus();
+
+    });
 });
-$("#Orange").click(function () {
-      addValues(crystal.Orange);
-});
-$("#Teal").click(function () {
-      addValues(crystal.Teal);
-});
-$("#Purple").click(function () {
-      addValues(crystal.Purple);
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
